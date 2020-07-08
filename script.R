@@ -16,6 +16,7 @@ ts <- df %>%
   filter(years >= 3) %>%
   left_join(ds, by = c("dataset_id" = "id"))
 
+write.csv(ts, "timeseries.csv", row.names = FALSE)
 
 colors <- paste0("#", substr(as.hexmode(digest2int(ts$dataset_id)), 1, 6))
 
